@@ -1,5 +1,4 @@
 {% set version = '0.61' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: shinyBS_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/shinyBS_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/shinyBS/shinyBS_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/shinyBS_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/shinyBS/shinyBS_{{ version }}.tar.gz
   sha256: 51be29541e066d30c66e243393f20b0da705eba1b7ce7eeadea993bb2aa91166
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,6 +23,8 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-htmltools
     - r-shiny >=0.11
@@ -33,16 +35,22 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('shinyBS')"  # [not win]
+    - $R -e "library('shinyBS')"           # [not win]
     - "\"%R%\" -e \"library('shinyBS')\""  # [win]
 
 about:
   home: https://ebailey78.github.io/shinyBS
   license: GPL-3
-  summary: Adds additional Twitter Bootstrap components to Shiny.
+  summary: 'Adds additional Twitter Bootstrap components to Shiny.'
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
