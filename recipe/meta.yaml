@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: shinyBS_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/shinyBS_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/shinyBS/shinyBS_{{ version }}.tar.gz
@@ -40,7 +39,7 @@ test:
 
 about:
   home: https://ebailey78.github.io/shinyBS
-  license: GPL-3
+  license: GPL-3.0-only
   summary: 'Adds additional Twitter Bootstrap components to Shiny.'
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
@@ -48,9 +47,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
