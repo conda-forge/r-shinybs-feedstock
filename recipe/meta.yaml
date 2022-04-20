@@ -1,4 +1,4 @@
-{% set version = '0.61' %}
+{% set version = "0.61.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +10,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/shinyBS_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/shinyBS/shinyBS_{{ version }}.tar.gz
-  sha256: 51be29541e066d30c66e243393f20b0da705eba1b7ce7eeadea993bb2aa91166
+  sha256: 0aed72473060531d0e782ba62092493002137df6b251af9e2294e2a40a32a140
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
-  number: 1003
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -40,9 +40,9 @@ test:
 about:
   home: https://ebailey78.github.io/shinyBS
   license: GPL-3.0-only
-  summary: 'Adds additional Twitter Bootstrap components to Shiny.'
+  summary: Adds additional Twitter Bootstrap components to Shiny.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
