@@ -1,11 +1,11 @@
-About r-shinybs
-===============
+About r-shinybs-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-shinybs-feedstock/blob/main/LICENSE.txt)
 
 Home: https://ebailey78.github.io/shinyBS
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-shinybs-feedstock/blob/main/LICENSE.txt)
 
 Summary: Adds additional Twitter Bootstrap components to Shiny.
 
