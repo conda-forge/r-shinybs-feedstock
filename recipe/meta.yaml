@@ -1,4 +1,4 @@
-{% set version = "0.63.0" %}
+{% set version = "0.64.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/shinyBS_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/shinyBS/shinyBS_{{ version }}.tar.gz
-  sha256: 710024cdacd5054e6c0cc4657f4d38d1afd1ce7315bccdd02e1df79176047b00
+  sha256: f23725b53a4a7bd3a7f3ccba0b395c38328f1b8ca77fff0e6931ebd91752c9d0
 
 build:
   noarch: generic
